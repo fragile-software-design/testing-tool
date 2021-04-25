@@ -1,0 +1,10 @@
+{
+  "name": "testing-tool",
+  "version": "1.0.0",
+  "description": "SSR Testing Tool made primarily for Booking.com",
+  "main": "index.js",
+  "repository": "https://github.com/fragile-software-design/testing-tool.git",
+  "author": "Fragile Software Design",
+  "license": "MIT",
+  "private": true
+}
