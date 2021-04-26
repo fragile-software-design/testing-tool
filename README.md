@@ -9,7 +9,7 @@ You can install dependencies using the command: `yarn`
 
 Add dependencies using the command: `yarn add [package name]`
 
-Adding `--save-dev` if the dependency is only for development i.e. linters etc.
+Adding `--dev` if the dependency is only for development i.e. linters etc.
 
 ## Version Control
 
@@ -21,4 +21,4 @@ Most IDE's have version control functionalities built in. I (Michael) use WebSto
 
 This step will evolve over time, but usually running the project will mean executing the command: `yarn run [script]`
 
-You can see the list of scripts in the `package.json`
+You can see the list of scripts in the `package.json` of each component.

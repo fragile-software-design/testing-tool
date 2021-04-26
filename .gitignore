@@ -1,0 +1,16 @@
+# Node Modules Folders
+
+/node_modules
+/oracle/node_modules
+
+# Unneccesary Yarn Files
+
+/oracle/yarn-error.log
+
+# Build Folders
+
+/oracle/build
+
+# IDE
+
+/.idea
