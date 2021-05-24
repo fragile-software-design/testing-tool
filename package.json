@@ -5,6 +5,12 @@
   "repository": "https://github.com/fragile-software-design/testing-tool.git",
   "author": "Fragile Software Design",
   "license": "MIT",
-  "workspaces": ["oracle"],
-  "private": true
+  "workspaces": [
+    "oracle"
+  ],
+  "private": true,
+  "dependencies": {
+    "csv-parse": "^4.15.4",
+    "faker": "^5.5.3"
+  }
 }
