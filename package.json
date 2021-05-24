@@ -8,9 +8,5 @@
   "workspaces": [
     "oracle"
   ],
-  "private": true,
-  "dependencies": {
-    "csv-parse": "^4.15.4",
-    "faker": "^5.5.3"
-  }
+  "private": true
 }
