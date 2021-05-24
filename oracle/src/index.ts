@@ -148,8 +148,8 @@ fs.createReadStream('src/preGeneratedTestData.csv')
             }
 
             //2.1 TEST-2 ENTERING TEST CASE
-            //const randomIndex = Math.floor((Math.random()*9));//Random index to pick data from pre-generated csv file
-            const randomIndex = 1;
+            const randomIndex = Math.floor((Math.random()*9));//Random index to pick data from pre-generated csv file
+            //const randomIndex = 1;
 
             //2.1.1 Enter the destination name
             const destinationInput = csvData[randomIndex]['Destination'];
