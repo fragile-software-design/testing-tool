@@ -12,7 +12,10 @@ const testCase = new TestCase();
 
 const exampleTest = async (): Promise<void> => {
   const driver = await new Builder().forBrowser('chrome').build();
-
+  const destinationInputBox= By.name('ss');
+  const datesInputBox = By.className('xp__dates-inner');
+  const guestDetailsBox = By.className('xp__input');
+  const searchButton = By.className('sb-searchbox__button');
   //1.1 TEST-1 LOADING THE HOME PAGE
   await driver.get('https://www.booking.com');
   //1.2 TEST-1 RESULT CHECKING (TEST ORACLE)
@@ -21,13 +24,13 @@ const exampleTest = async (): Promise<void> => {
       await driver.wait(until.titleIs(
         'Booking.com | Official site | The best hotels & accommodations'), 5000);
       /*Check whether the Destination input box is located*/
-      await driver.wait(until.elementLocated(By.name('ss')));
+      await driver.wait(until.elementLocated(destinationInputBox));
       /*Check whether the Checkin and Checkout dates input box is located*/
-      await driver.wait(until.elementLocated(By.className('xp__dates-inner')));
+      await driver.wait(until.elementLocated(datesInputBox));
       /*Check whether the Guest details input box is located*/
-      await driver.wait(until.elementLocated(By.className('xp__input')));
+      await driver.wait(until.elementLocated(guestDetailsBox));
       /*Check whether the Search button is located*/
-      await driver.wait(until.elementLocated(By.className('sb-searchbox__button')));
+      await driver.wait(until.elementLocated(searchButton));
 
       console.log('Test-1 Result: Passed! The page is loaded successfully');
   } catch (e) {
@@ -40,14 +43,14 @@ const exampleTest = async (): Promise<void> => {
   await driver.findElement(By.name('ss')).sendKeys(destinationInput);
   
   //2.1.2 Enter the checkin and checkout dates
-  await driver.findElement(By.className("xp__dates-inner")).click();//Click dates box
+  await driver.findElement(datesInputBox).click();//Click dates box
   const checkin = testCase.generateDates().checkinDateInput;
   const checkout = testCase.generateDates().checkoutDateInput;
   await driver.findElement(By.css("td.bui-calendar__date[data-date='"+checkin+"']")).click();//checkin
   await driver.findElement(By.css("td.bui-calendar__date[data-date='"+checkout+"']")).click();//checkout
   
   //2.1.3 Enter the guest details (automated case?)
-  await driver.findElement(By.className("xp__input")).click();//Click the guest details box
+  await driver.findElement(guestDetailsBox).click();//Click the guest details box
 
   //2.1.3.1 No of Adults
   const noOfAdults = testCase.generateNoOfAdults();
@@ -79,7 +82,7 @@ const exampleTest = async (): Promise<void> => {
   //await driver.findElement(By.css("button[aria-label='Decrease number of Rooms']")).click();//automated click for - rooms
 
   //2.1.4 Click Search button
-  await driver.findElement(By.className("sb-searchbox__button")).click();
+  await driver.findElement(searchButton).click();
 
 
   //2.2 TEST-2 RESULT CHECKING (TEST ORACLE, maybe test more)
@@ -106,7 +109,7 @@ const exampleTest = async (): Promise<void> => {
     // await driver.quit();
 };
 
-//exampleTest();//UNCOMMENT IF YOU WANT TO RUN THE TEST WITH AUTOMATED TEST CASE GENERATOR
+exampleTest();//UNCOMMENT IF YOU WANT TO RUN THE TEST WITH AUTOMATED TEST CASE GENERATOR
 
 
 
@@ -125,6 +128,10 @@ fs.createReadStream('src/preGeneratedTestData.csv')
     .on('end', () => {
         const exampleTestFromCSV = async (): Promise<void> => {
             const driver = await new Builder().forBrowser('chrome').build();
+            const destinationInputBox= By.name('ss');
+            const datesInputBox = By.className('xp__dates-inner');
+            const guestDetailsBox = By.className('xp__input');
+            const searchButton = By.className('sb-searchbox__button');
 
             //1.1 TEST-1 LOADING THE HOME PAGE
             await driver.get('https://www.booking.com');
@@ -134,13 +141,13 @@ fs.createReadStream('src/preGeneratedTestData.csv')
                 await driver.wait(until.titleIs(
                     'Booking.com | Official site | The best hotels & accommodations'), 5000);
                 /*Check whether the Destination input box is located*/
-                await driver.wait(until.elementLocated(By.name('ss')));
+                await driver.wait(until.elementLocated(destinationInputBox));
                 /*Check whether the Checkin and Checkout dates input box is located*/
-                await driver.wait(until.elementLocated(By.className('xp__dates-inner')));
+                await driver.wait(until.elementLocated(datesInputBox));
                 /*Check whether the Guest details input box is located*/
-                await driver.wait(until.elementLocated(By.className('xp__input')));
+                await driver.wait(until.elementLocated(guestDetailsBox));
                 /*Check whether the Search button is located*/
-                await driver.wait(until.elementLocated(By.className('sb-searchbox__button')));
+                await driver.wait(until.elementLocated(searchButton));
 
                 console.log('Test-1 Result: Passed! The page is loaded successfully');
             } catch (e) {
@@ -153,17 +160,17 @@ fs.createReadStream('src/preGeneratedTestData.csv')
 
             //2.1.1 Enter the destination name
             const destinationInput = csvData[randomIndex]['Destination'];
-            await driver.findElement(By.name('ss')).sendKeys(destinationInput);
+            await driver.findElement(destinationInputBox).sendKeys(destinationInput);
 
             //2.1.2 Enter the checkin and checkout dates
-            await driver.findElement(By.className("xp__dates-inner")).click();//Click dates box
+            await driver.findElement(datesInputBox).click();//Click dates box
             const checkin = csvData[randomIndex]['Checkin'];
             const checkout = csvData[randomIndex]['Checkout'];
             await driver.findElement(By.css("td.bui-calendar__date[data-date='"+checkin+"']")).click();//checkin
             await driver.findElement(By.css("td.bui-calendar__date[data-date='"+checkout+"']")).click();//checkout
 
             //2.1.3 Enter the guest details (automated case?)
-            await driver.findElement(By.className("xp__input")).click();//Click the guest details box
+            await driver.findElement(guestDetailsBox).click();//Click the guest details box
 
             //2.1.3.1 No of Adults
             const noOfAdults = Number (csvData[randomIndex]['NoOfAdults']);
@@ -195,7 +202,7 @@ fs.createReadStream('src/preGeneratedTestData.csv')
             //await driver.findElement(By.css("button[aria-label='Decrease number of Rooms']")).click();//automated click for - rooms
 
             //2.1.4 Click Search button
-            await driver.findElement(By.className("sb-searchbox__button")).click();
+            await driver.findElement(searchButton).click();
 
             //2.2 TEST-2 RESULT CHECKING (TEST ORACLE, maybe test more)
             try {
@@ -218,7 +225,7 @@ fs.createReadStream('src/preGeneratedTestData.csv')
             }
             //await driver.quit();
         };
-        exampleTestFromCSV();//UNCOMMENT IF YOU WANT TO RUN THE TEST WITH PRE-GENERATED TEST CASE
+        //exampleTestFromCSV();//UNCOMMENT IF YOU WANT TO RUN THE TEST WITH PRE-GENERATED TEST CASE
     });
 
 
