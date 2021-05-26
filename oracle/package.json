@@ -14,7 +14,7 @@
     "prettier": "prettier --config .prettierrc src/**/*.ts --write"
   },
   "devDependencies": {
-    "@types/faker": "^5.5.5",
+    "@types/faker": "^5.5.3",
     "@types/node": "^14.14.41",
     "@types/selenium-webdriver": "^4.0.12",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "chromedriver": "^90.0.0",
+    "csv-parser": "^3.0.0",
     "faker": "^5.5.3",
     "selenium-webdriver": "^4.0.0-beta.3"
   }

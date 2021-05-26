@@ -5,6 +5,8 @@
   "repository": "https://github.com/fragile-software-design/testing-tool.git",
   "author": "Fragile Software Design",
   "license": "MIT",
-  "workspaces": ["oracle"],
+  "workspaces": [
+    "oracle"
+  ],
   "private": true
 }
